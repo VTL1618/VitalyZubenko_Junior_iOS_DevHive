@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C98E36F42AA759460036E465 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E36F32AA759460036E465 /* PostListViewModel.swift */; };
+		C98E36F82AA75AD60036E465 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E36F72AA75AD60036E465 /* CommentsViewController.swift */; };
+		C98E36FA2AA75AFB0036E465 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E36F92AA75AFB0036E465 /* CommentsViewModel.swift */; };
 		C9BE03BC2AA61FEB00FC0A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE03BB2AA61FEB00FC0A0A /* AppDelegate.swift */; };
 		C9BE03BE2AA61FEB00FC0A0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE03BD2AA61FEB00FC0A0A /* SceneDelegate.swift */; };
-		C9BE03C02AA61FEB00FC0A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE03BF2AA61FEB00FC0A0A /* ViewController.swift */; };
+		C9BE03C02AA61FEB00FC0A0A /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE03BF2AA61FEB00FC0A0A /* PostListViewController.swift */; };
 		C9BE03C32AA61FEB00FC0A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BE03C12AA61FEB00FC0A0A /* Main.storyboard */; };
 		C9BE03C62AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9BE03C42AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive.xcdatamodeld */; };
 		C9BE03C82AA61FF100FC0A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BE03C72AA61FF100FC0A0A /* Assets.xcassets */; };
@@ -17,10 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C98E36F32AA759460036E465 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		C98E36F72AA75AD60036E465 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		C98E36F92AA75AFB0036E465 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		C9BE03B82AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VitalyZubenko_Junior_iOS_DevHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BE03BB2AA61FEB00FC0A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9BE03BD2AA61FEB00FC0A0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C9BE03BF2AA61FEB00FC0A0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C9BE03BF2AA61FEB00FC0A0A /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		C9BE03C22AA61FEB00FC0A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9BE03C52AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VitalyZubenko_Junior_iOS_DevHive.xcdatamodel; sourceTree = "<group>"; };
 		C9BE03C72AA61FF100FC0A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +68,24 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C98E36F52AA759830036E465 /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				C9BE03BF2AA61FEB00FC0A0A /* PostListViewController.swift */,
+				C98E36F32AA759460036E465 /* PostListViewModel.swift */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		C98E36F62AA75AA40036E465 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				C98E36F72AA75AD60036E465 /* CommentsViewController.swift */,
+				C98E36F92AA75AFB0036E465 /* CommentsViewModel.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		C9BE03AF2AA61FEB00FC0A0A = {
 			isa = PBXGroup;
 			children = (
@@ -81,7 +105,8 @@
 		C9BE03BA2AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive */ = {
 			isa = PBXGroup;
 			children = (
-				C9BE03BF2AA61FEB00FC0A0A /* ViewController.swift */,
+				C98E36F52AA759830036E465 /* PostList */,
+				C98E36F62AA75AA40036E465 /* Comments */,
 				C94B723E2AA74E7D00023A5F /* Services */,
 				C94B723C2AA74E4300023A5F /* Models */,
 				C94B723D2AA74E5F00023A5F /* Storyboard */,
@@ -165,9 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9BE03C02AA61FEB00FC0A0A /* ViewController.swift in Sources */,
+				C9BE03C02AA61FEB00FC0A0A /* PostListViewController.swift in Sources */,
 				C9BE03BC2AA61FEB00FC0A0A /* AppDelegate.swift in Sources */,
+				C98E36F82AA75AD60036E465 /* CommentsViewController.swift in Sources */,
+				C98E36F42AA759460036E465 /* PostListViewModel.swift in Sources */,
 				C9BE03C62AA61FEB00FC0A0A /* VitalyZubenko_Junior_iOS_DevHive.xcdatamodeld in Sources */,
+				C98E36FA2AA75AFB0036E465 /* CommentsViewModel.swift in Sources */,
 				C9BE03BE2AA61FEB00FC0A0A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
