@@ -12,8 +12,9 @@ class PostTableViewCell: UITableViewCell {
     var viewModel: PostTableViewCellViewModelProtocol! {
         didSet {
             var content = defaultContentConfiguration()
-            content.text = viewModel
+            content.text = viewModel.postTitle
+            content.secondaryText = viewModel.postBody
+            contentConfiguration = content
         }
-        // Computed property must have accessors specified
     }
 }

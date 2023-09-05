@@ -12,3 +12,20 @@ protocol PostTableViewCellViewModelProtocol {
     var postBody: String { get }
     init(post: Post)
 }
+
+class PostTableViewCellViewModel: PostTableViewCellViewModelProtocol {
+    
+    var postTitle: String {
+        post.name
+    }
+    
+    var postBody: String {
+        post.body
+    }
+    
+    private let post: Post
+    
+    required init(post: Post) {
+        self.post = post
+    }
+}
