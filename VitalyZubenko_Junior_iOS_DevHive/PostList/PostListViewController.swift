@@ -9,7 +9,15 @@ import UIKit
 
 class PostListViewController: UIViewController {
 
-    weak var tableView: UITableView!
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
+        tableView.rowHeight = 100
+        tableView.layer.backgroundColor = UIColor.green.cgColor
+        tableView.tableFooterView = UIView(frame: .zero)
+        return tableView
+    }()
     
     private var viewModel: PostListViewModelProtocol! {
         didSet {
@@ -22,18 +30,32 @@ class PostListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 100
+        viewModel = PostListViewModel()
         setupNavigationBar()
+        setConstraintsTableView()
     }
     
     private func setupNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.backgroundColor = #colorLiteral(red: 0.113761507, green: 0.1048973277, blue: 0.150441885, alpha: 1)
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarAppearance.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+    }
+    
+    private func setConstraintsTableView() {
+        view.addSubview(tableView)
+        
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
@@ -46,8 +68,8 @@ extension PostListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+
         cell.viewModel = viewModel.cellViewModel(at: indexPath)
         
         return cell
@@ -57,5 +79,16 @@ extension PostListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension PostListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let commentsViewModel = viewModel.viewModelForSelectedRow(at: indexPath)
+        
+        let commentsList = CommentsViewController()
+        commentsList.navigationItem.title = "Comments"
+        commentsList.pressedPost = commentsViewModel.id
+        self.navigationController?.pushViewController(commentsList, animated: true)
+    }
 }
 

@@ -9,6 +9,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
+    static let reuseId = "postCell"
+    
     var viewModel: PostTableViewCellViewModelProtocol! {
         didSet {
             var content = defaultContentConfiguration()

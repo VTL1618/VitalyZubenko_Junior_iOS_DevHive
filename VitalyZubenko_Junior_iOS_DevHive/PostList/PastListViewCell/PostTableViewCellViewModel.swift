@@ -16,7 +16,7 @@ protocol PostTableViewCellViewModelProtocol {
 class PostTableViewCellViewModel: PostTableViewCellViewModelProtocol {
     
     var postTitle: String {
-        post.name
+        post.title
     }
     
     var postBody: String {
