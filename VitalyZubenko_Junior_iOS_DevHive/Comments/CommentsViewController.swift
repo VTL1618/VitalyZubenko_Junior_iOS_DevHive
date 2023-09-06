@@ -35,6 +35,7 @@ class CommentsViewController: UIViewController {
         viewModel = CommentsViewModel()
         setupNavigationBar()
         setConstraintsTableView()
+        navigationItem.title = "Comments (\(viewModel.numberOfRows()))"
     }
     
     private func setupNavigationBar() {
@@ -66,6 +67,7 @@ extension CommentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel != nil {
+            navigationItem.title = "Comments (\(viewModel.numberOfRows()))"
             return viewModel.numberOfRows()
         } else {
             return 10
@@ -73,7 +75,7 @@ extension CommentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentTableViewCell
         cell.viewModel = viewModel.cellViewModel(at: indexPath)
         
